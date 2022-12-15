@@ -1,0 +1,118 @@
+class Math {
+    static Array twoToThe;
+    /** Initializes the library. */
+    function void init() {
+        var int i;
+        let twoToThe = Array.new(16);
+        let i = 0;
+
+        while (i < 16) {
+            twoToThe[i] = pow(2, i);
+            i = i + 1;
+        }
+    }
+
+    function int mod(int n, int divisor) {
+        return (n - divisor * (num / divisor));
+    }
+
+    function int bit(int x, int i) {
+        return twoToThe[i] & x 
+    }
+
+    /** Returns the absolute value of x. */
+    function int abs(int x) {
+        if (x < 0) {
+            return -x;
+        }
+
+        return x;
+    }
+
+    func int pow(int x, int y) {
+        let int res, cnt;
+        let cnt = 0;
+        let res = 1;
+
+        while (cnt < y) {
+            res = res * x;
+            cnt = cnt + 1;
+        }
+
+        return res;
+    }
+    /** Returns the product of x and y. 
+     *  When a Jack compiler detects the multiplication operator '*' in the 
+     *  program's code, it handles it by invoking this method. In other words,
+     *  the Jack expressions x*y and multiply(x,y) return the same value.
+     */
+    function int multiply(int x, int y) {
+        var int sum, shiftedx, i;
+
+        let sum = 0;
+        let shiftedx = x;
+        let i = 0;
+        while (i < n) {
+            if (~(bit(y, i) = 0)) {
+                sum = sum + shiftedx
+            }
+            shiftedx = 2 * shiftedx;
+        }
+
+        return sum;
+    }
+
+    /** Returns the integer part of x/y.
+     *  When a Jack compiler detects the multiplication operator '/' in the 
+     *  program's code, it handles it by invoking this method. In other words,
+     *  the Jack expressions x/y and divide(x,y) return the same value.
+     */
+    function int divide(int x, int y) {
+        var int q;
+        if (y > x) {
+            return 0;
+        }
+
+        let q = divide(x, 2 * y);
+        if ((x - 2 * q * y) < y) {
+            return 2 * q;
+        } else {
+            return 2 * q + 1;
+        }
+
+    }
+
+    /** Returns the integer part of the square root of x. */
+    function int sqrt(int x) {
+        var int y, j, p;
+        let y = 0;
+        let j = 7;
+        
+        while (j > 0 || j = 0) {
+            p = pow(y + pow(2, j), 2);
+            if (p < x || p == x) {
+                y = y + pow(2, j);
+            }
+        }
+
+        return y;
+    }
+
+    /** Returns the greater number. */
+    function int max(int a, int b) {
+        if (a > b) {
+            return a;
+        }
+
+        return b;
+    }
+
+    /** Returns the smaller number. */
+    function int min(int a, int b) {
+        if (a < b) {
+            return a;
+        }
+
+        return b;
+    }
+}
